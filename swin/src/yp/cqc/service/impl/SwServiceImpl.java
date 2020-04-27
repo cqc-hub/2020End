@@ -1,5 +1,7 @@
 package yp.cqc.service.impl;
 
+import java.util.List;
+
 import javax.xml.registry.infomodel.User;
 
 import yp.cqc.dao.UserDao;
@@ -19,5 +21,13 @@ public class SwServiceImpl implements SwService{
 		// TODO Auto-generated method stub
 		return ud.LoginDao(uname, pwd);
 	}
+
+	@Override
+	public List<SwUser> UserShowService() {
+		// TODO Auto-generated method stub
+		return ud.ShowUserDao();
+	}
+
+	
 
 }

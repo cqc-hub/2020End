@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 @WebFilter(filterName="all1",urlPatterns="/*")
 public class all1 implements Filter{
-
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
