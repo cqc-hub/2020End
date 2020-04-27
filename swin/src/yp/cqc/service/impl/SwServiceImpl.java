@@ -7,6 +7,7 @@ import javax.xml.registry.infomodel.User;
 import yp.cqc.dao.UserDao;
 import yp.cqc.dao.impl.UserDaoImpl;
 import yp.cqc.pojo.SwUser;
+import yp.cqc.pojo.banners;
 import yp.cqc.service.SwService;
 
 public class SwServiceImpl implements SwService{
@@ -27,6 +28,14 @@ public class SwServiceImpl implements SwService{
 		// TODO Auto-generated method stub
 		return ud.ShowUserDao();
 	}
+
+	@Override
+	public List<banners> ShowBannerService() {
+		// TODO Auto-generated method stub
+		return ud.ShowBannersDao();
+	}
+
+	
 
 	
 

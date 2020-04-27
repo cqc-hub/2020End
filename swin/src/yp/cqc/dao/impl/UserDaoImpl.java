@@ -12,6 +12,7 @@ import javax.xml.registry.infomodel.User;
 
 import yp.cqc.dao.UserDao;
 import yp.cqc.pojo.SwUser;
+import yp.cqc.pojo.banners;
 
 public class UserDaoImpl implements UserDao{
 
@@ -143,6 +144,65 @@ public class UserDaoImpl implements UserDao{
 		//返回结果
 		return lu;
 	}
+
+	@Override
+	public List<banners> ShowBannersDao() {
+		// TODO Auto-generated method stub
+				//声明jdbc参数
+					Connection conn=null;
+					PreparedStatement ps=null;
+					ResultSet rs=null;
+				//声明变量
+					List<banners> bs=null;
+				
+					try {
+						Class.forName("com.mysql.jdbc.Driver");
+						conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+						String sql="select* from banners ";
+						ps=conn.prepareStatement(sql);
+						bs=new ArrayList<banners>();
+						
+						rs=ps.executeQuery();
+						while(rs.next()){
+							banners u=new banners();
+							u.setId(rs.getInt("id"));
+							u.setImage(rs.getString("image"));
+							u.setLink(rs.getString("link"));
+							bs.add(u);
+						}
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}finally {
+						//关闭资源
+						try {
+							rs.close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						try {
+							ps.close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						try {
+							conn.close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+					}
+				
+				
+				
+				return bs;
+	}
+
+
+	
 
 	
 

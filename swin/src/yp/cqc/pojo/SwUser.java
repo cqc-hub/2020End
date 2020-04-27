@@ -2,6 +2,15 @@ package yp.cqc.pojo;
 
 public class SwUser {
 	private int uid;
+	private String uname;
+	private String pwd;
+	private String sex;
+	private int age;
+	private String birth;
+	private String bodyhel;
+	private int score1;
+	private int score2;
+	private int score3;
 	public SwUser(int uid, String uname, String pwd, String sex, int age, String birth, String bodyhel, int score1,
 			int score2, int score3) {
 		super();
@@ -217,14 +226,6 @@ public class SwUser {
 	public void setScore3(int score3) {
 		this.score3 = score3;
 	}
-	private String uname;
-	private String pwd;
-	private String sex;
-	private int age;
-	private String birth;
-	private String bodyhel;
-	private int score1;
-	private int score2;
-	private int score3;
+	
 
 }
