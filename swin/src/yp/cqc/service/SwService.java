@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.xml.registry.infomodel.User;
 
+import yp.cqc.pojo.Evals;
 import yp.cqc.pojo.SwUser;
 import yp.cqc.pojo.banners;
 
@@ -14,6 +15,10 @@ public interface SwService {
 	List<SwUser> UserShowService();
 
 	List<banners> ShowBannerService();
+
+	List<Evals> EvalShowService();
+
+	int userRegService(SwUser u);
 
 
 

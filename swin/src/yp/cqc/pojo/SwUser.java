@@ -2,17 +2,8 @@ package yp.cqc.pojo;
 
 public class SwUser {
 	private int uid;
-	private String uname;
-	private String pwd;
-	private String sex;
-	private int age;
-	private String birth;
-	private String bodyhel;
-	private int score1;
-	private int score2;
-	private int score3;
 	public SwUser(int uid, String uname, String pwd, String sex, int age, String birth, String bodyhel, int score1,
-			int score2, int score3) {
+			int score2, int score3, int qx) {
 		super();
 		this.uid = uid;
 		this.uname = uname;
@@ -24,6 +15,7 @@ public class SwUser {
 		this.score1 = score1;
 		this.score2 = score2;
 		this.score3 = score3;
+		this.qx = qx;
 	}
 	public SwUser() {
 		super();
@@ -40,6 +32,7 @@ public class SwUser {
 		result = prime * result + ((birth == null) ? 0 : birth.hashCode());
 		result = prime * result + ((bodyhel == null) ? 0 : bodyhel.hashCode());
 		result = prime * result + ((pwd == null) ? 0 : pwd.hashCode());
+		result = prime * result + qx;
 		result = prime * result + score1;
 		result = prime * result + score2;
 		result = prime * result + score3;
@@ -77,6 +70,8 @@ public class SwUser {
 				return false;
 		} else if (!pwd.equals(other.pwd))
 			return false;
+		if (qx != other.qx)
+			return false;
 		if (score1 != other.score1)
 			return false;
 		if (score2 != other.score2)
@@ -104,7 +99,7 @@ public class SwUser {
 	public String toString() {
 		return "SwUser [uid=" + uid + ", uname=" + uname + ", pwd=" + pwd + ", sex=" + sex + ", age=" + age + ", birth="
 				+ birth + ", bodyhel=" + bodyhel + ", score1=" + score1 + ", score2=" + score2 + ", score3=" + score3
-				+ "]";
+				+ ", qx=" + qx + "]";
 	}
 	/**
 	 * @return the uid
@@ -226,6 +221,27 @@ public class SwUser {
 	public void setScore3(int score3) {
 		this.score3 = score3;
 	}
-	
+	/**
+	 * @return the qx
+	 */
+	public int getQx() {
+		return qx;
+	}
+	/**
+	 * @param qx the qx to set
+	 */
+	public void setQx(int qx) {
+		this.qx = qx;
+	}
+	private String uname;
+	private String pwd;
+	private String sex;
+	private int age;
+	private String birth;
+	private String bodyhel;
+	private int score1;
+	private int score2;
+	private int score3;
+	private int qx;
 
 }
