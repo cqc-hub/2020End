@@ -48,6 +48,12 @@ public class SwServiceImpl implements SwService{
 		return ud.RegUser(u);
 	}
 
+	@Override
+	public int reviseEvalsService(Evals es) {
+		// TODO Auto-generated method stub
+		return ud.reviseEvals(es);
+	}
+
 	
 
 	

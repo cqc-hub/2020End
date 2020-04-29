@@ -320,6 +320,59 @@ public class UserDaoImpl implements UserDao{
 		return index;
 	}
 
+	@Override
+	public int reviseEvals(Evals es) {
+		// TODO Auto-generated method stub
+				Connection conn=null;
+				PreparedStatement ps=null;
+				ResultSet rs=null;
+				//声明变量
+				int index=-1;
+				
+				try {
+					//加载驱动
+					Class.forName("com.mysql.jdbc.Driver");
+					//获取连接
+					conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+					//创建sql语句
+					String sql="insert into table_eval values(default,?,?,?,?)";
+					//创建sql命令对象 
+					ps=conn.prepareStatement(sql);
+					//给占位符赋值
+					ps.setString(1, es.getUname());
+					ps.setLong(2, es.getCreate());
+					ps.setString(3, es.getEval());
+					ps.setInt(4, es.getUid());
+					
+					//执行
+					index=ps.executeUpdate();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					//关闭资源
+				
+					try {
+						ps.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+
+				//返回结果
+				
+				
+				return index;
+	}
+
 
 	
 

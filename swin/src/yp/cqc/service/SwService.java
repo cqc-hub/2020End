@@ -20,6 +20,8 @@ public interface SwService {
 
 	int userRegService(SwUser u);
 
+	int reviseEvalsService(Evals es);
+
 
 
 

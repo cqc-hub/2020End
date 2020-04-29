@@ -21,6 +21,8 @@ public interface UserDao {
 
 	int RegUser(SwUser u);
 
+	int reviseEvals(Evals es);
+
 
 	
 
