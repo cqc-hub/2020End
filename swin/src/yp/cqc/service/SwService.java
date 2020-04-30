@@ -22,6 +22,10 @@ public interface SwService {
 
 	int reviseEvalsService(Evals es);
 
+	SwUser LookUserService(String uname);
+
+	int userChangePwdServlce(String newPwd, int uid);
+
 
 
 

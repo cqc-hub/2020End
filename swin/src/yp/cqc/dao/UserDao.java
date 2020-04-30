@@ -23,6 +23,10 @@ public interface UserDao {
 
 	int reviseEvals(Evals es);
 
+	SwUser LookUserDao(String uname);
+
+	int userChangePwdDao(String newPwd, int uid);
+
 
 	
 

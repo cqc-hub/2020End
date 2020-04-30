@@ -373,6 +373,104 @@ public class UserDaoImpl implements UserDao{
 				return index;
 	}
 
+	@Override
+	public SwUser LookUserDao(String uname) {
+		// TODO Auto-generated method stub
+				SwUser u=null;
+				Connection conn=null;
+				PreparedStatement ps=null;
+				ResultSet rs=null;
+				
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+					//MySQL驱动和数据库字符集设置不搭配 修改设置-->  ?useUnicode=true&characterEncoding=utf8
+					String sql="select * from table_user where uname=?";
+					ps=conn.prepareStatement(sql);
+					ps.setString(1, uname);
+					rs=ps.executeQuery();
+					while(rs.next()){
+						u=new SwUser();
+						u.setUid(rs.getInt("uid"));
+						u.setUname(rs.getString("uname"));
+						u.setPwd(rs.getString("pwd"));
+						u.setAge(rs.getInt("age"));
+						u.setBirth(rs.getString("birth"));
+						u.setSex(rs.getString("sex"));
+						u.setBodyhel(rs.getString("bodyhel"));
+						u.setScore1(rs.getInt("score1"));
+						u.setScore2(rs.getInt("score2"));
+						u.setScore3(rs.getInt("score3"));
+						u.setQx(rs.getInt("qx"));
+					}
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally{
+					try {
+						rs.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						ps.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				return u;
+	}
+
+	@Override
+	public int userChangePwdDao(String newPwd, int uid) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		//创建变量
+		int index=-1;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+			String sql="update table_user set pwd=? where uid=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, newPwd);
+			ps.setInt(2, uid);
+			index=ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			//关闭资源
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		//返回结果
+		
+		return index;
+	}
+
 
 	
 

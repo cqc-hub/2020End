@@ -54,6 +54,18 @@ public class SwServiceImpl implements SwService{
 		return ud.reviseEvals(es);
 	}
 
+	@Override
+	public SwUser LookUserService(String uname) {
+		// TODO Auto-generated method stub
+		return ud.LookUserDao(uname);
+	}
+
+	@Override
+	public int userChangePwdServlce(String newPwd, int uid) {
+		// TODO Auto-generated method stub
+		return ud.userChangePwdDao(newPwd,uid);
+	}
+
 	
 
 	
