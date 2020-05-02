@@ -66,6 +66,24 @@ public class SwServiceImpl implements SwService{
 		return ud.userChangePwdDao(newPwd,uid);
 	}
 
+	@Override
+	public int userChangeAgeServlce(int newAge, int uid) {
+		// TODO Auto-generated method stub
+		return ud.userChangeAgeDao(newAge,uid);
+	}
+
+	@Override
+	public int userChangeBirServlce(String newBir, int uid) {
+		// TODO Auto-generated method stub
+		return ud.userChangeBirDao(newBir,uid);
+	}
+
+	@Override
+	public int userDelServlce(int uid) {
+		// TODO Auto-generated method stub
+		return ud.userDelDao(uid);
+	}
+
 	
 
 	

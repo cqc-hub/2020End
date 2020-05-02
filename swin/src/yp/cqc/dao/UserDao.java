@@ -27,6 +27,12 @@ public interface UserDao {
 
 	int userChangePwdDao(String newPwd, int uid);
 
+	int userChangeAgeDao(int newAge, int uid);
+
+	int userChangeBirDao(String newBir, int uid);
+
+	int userDelDao(int uid);
+
 
 	
 

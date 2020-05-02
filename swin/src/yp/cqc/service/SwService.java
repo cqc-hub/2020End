@@ -26,6 +26,12 @@ public interface SwService {
 
 	int userChangePwdServlce(String newPwd, int uid);
 
+	int userChangeAgeServlce(int newAge, int uid);
+
+	int userChangeBirServlce(String newBir, int uid);
+
+	int userDelServlce(int uid);
+
 
 
 

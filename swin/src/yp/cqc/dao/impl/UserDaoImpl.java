@@ -471,6 +471,131 @@ public class UserDaoImpl implements UserDao{
 		return index;
 	}
 
+	@Override
+	public int userChangeAgeDao(int newAge, int uid) {
+		// TODO Auto-generated method stub
+				Connection conn=null;
+				PreparedStatement ps=null;
+				ResultSet rs=null;
+				//创建变量
+				int index=-1;
+				
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+					String sql="update table_user set age=? where uid=?";
+					ps=conn.prepareStatement(sql);
+					ps.setInt(1, newAge);
+					ps.setInt(2, uid);
+					index=ps.executeUpdate();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					//关闭资源
+					try {
+						ps.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				
+				//返回结果
+				
+				return index;
+	}
+
+	@Override
+	public int userChangeBirDao(String newBir, int uid) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		//创建变量
+		int index=-1;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+			String sql="update table_user set birth=? where uid=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, newBir);
+			ps.setInt(2, uid);
+			index=ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			//关闭资源
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		//返回结果
+		
+		return index;
+	}
+
+	@Override
+	public int userDelDao(int uid) {
+		// TODO Auto-generated method stub
+				Connection conn=null;
+				PreparedStatement ps=null;
+				ResultSet rs=null;
+				//创建变量
+				int index=-1;
+				
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+					String sql="delete from table_user where uid = ?";
+					ps=conn.prepareStatement(sql);
+					ps.setInt(1, uid);
+					index=ps.executeUpdate();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					//关闭资源
+					try {
+						ps.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				
+				//返回结果
+				
+				return index;
+	}
+
 
 	
 
