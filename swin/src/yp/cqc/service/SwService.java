@@ -32,6 +32,14 @@ public interface SwService {
 
 	int userDelServlce(int uid);
 
+	int changeScore1Service(int uid, int score1);
+
+	int changeScore2Service(int uid, int score2);
+
+	int changeScore3Service(int uid, int score3);
+
+	int changeBodyhelService(int uid, String newbodyhel);
+
 
 
 

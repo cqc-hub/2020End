@@ -596,6 +596,174 @@ public class UserDaoImpl implements UserDao{
 				return index;
 	}
 
+	@Override
+	public int changeScore1Dao(int uid, int score1) {
+		// TODO Auto-generated method stub
+				Connection conn=null;
+				PreparedStatement ps=null;
+				ResultSet rs=null;
+				//创建变量
+				int index=-1;
+				
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+					String sql="update table_user set score1=? where uid=?";
+					ps=conn.prepareStatement(sql);
+					ps.setInt(1, score1);
+					ps.setInt(2, uid);
+					index=ps.executeUpdate();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					//关闭资源
+					try {
+						ps.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				
+				//返回结果
+				
+				return index;
+	}
+
+	@Override
+	public int changeScore2Dao(int uid, int score2) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		//创建变量
+		int index=-1;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+			String sql="update table_user set score2=? where uid=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, score2);
+			ps.setInt(2, uid);
+			index=ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			//关闭资源
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		//返回结果
+		
+		return index;
+	}
+
+	@Override
+	public int changeScore3Dao(int uid, int score3) {
+		// TODO Auto-generated method stub
+				Connection conn=null;
+				PreparedStatement ps=null;
+				ResultSet rs=null;
+				//创建变量
+				int index=-1;
+				
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+					String sql="update table_user set score3=? where uid=?";
+					ps=conn.prepareStatement(sql);
+					ps.setInt(1, score3);
+					ps.setInt(2, uid);
+					index=ps.executeUpdate();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					//关闭资源
+					try {
+						ps.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+				
+				//返回结果
+				
+				return index;
+	}
+
+	@Override
+	public int changeBodyhelDao(int uid, String newbodyhel) {
+		// TODO Auto-generated method stub
+		Connection conn=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		//创建变量
+		int index=-1;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+			String sql="update table_user set bodyhel=? where uid=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, newbodyhel);
+			ps.setInt(2, uid);
+			index=ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			//关闭资源
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		//返回结果
+		
+		return index;
+	}
+
 
 	
 

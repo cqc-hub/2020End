@@ -33,6 +33,14 @@ public interface UserDao {
 
 	int userDelDao(int uid);
 
+	int changeScore1Dao(int uid, int score1);
+
+	int changeScore2Dao(int uid, int score2);
+
+	int changeScore3Dao(int uid, int score3);
+
+	int changeBodyhelDao(int uid, String newbodyhel);
+
 
 	
 

@@ -84,6 +84,30 @@ public class SwServiceImpl implements SwService{
 		return ud.userDelDao(uid);
 	}
 
+	@Override
+	public int changeScore1Service(int uid, int score1) {
+		// TODO Auto-generated method stub
+		return ud.changeScore1Dao(uid,score1);
+	}
+
+	@Override
+	public int changeScore2Service(int uid, int score2) {
+		// TODO Auto-generated method stub
+		return ud.changeScore2Dao(uid,score2);
+	}
+
+	@Override
+	public int changeScore3Service(int uid, int score3) {
+		// TODO Auto-generated method stub
+		return ud.changeScore3Dao(uid,score3);
+	}
+
+	@Override
+	public int changeBodyhelService(int uid, String newbodyhel) {
+		// TODO Auto-generated method stub
+		return ud.changeBodyhelDao(uid,newbodyhel);
+	}
+
 	
 
 	
