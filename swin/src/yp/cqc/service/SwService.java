@@ -40,6 +40,8 @@ public interface SwService {
 
 	int changeBodyhelService(int uid, String newbodyhel);
 
+	int userChangeQXServlce(int newQX, int uid);
+
 
 
 

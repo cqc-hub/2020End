@@ -108,6 +108,12 @@ public class SwServiceImpl implements SwService{
 		return ud.changeBodyhelDao(uid,newbodyhel);
 	}
 
+	@Override
+	public int userChangeQXServlce(int newQX, int uid) {
+		// TODO Auto-generated method stub
+		return ud.changeQXDao(uid,newQX);
+	}
+
 	
 
 	

@@ -41,6 +41,8 @@ public interface UserDao {
 
 	int changeBodyhelDao(int uid, String newbodyhel);
 
+	int changeQXDao(int uid, int newQX);
+
 
 	
 

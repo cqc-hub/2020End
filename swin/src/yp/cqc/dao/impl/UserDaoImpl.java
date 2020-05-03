@@ -764,6 +764,47 @@ public class UserDaoImpl implements UserDao{
 		return index;
 	}
 
+	@Override
+	public int changeQXDao(int uid, int newQX) {
+		Connection conn=null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		//创建变量
+		int index=-1;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8","root","root");
+			String sql="update table_user set qx=? where uid=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, newQX);
+			ps.setInt(2, uid);
+			index=ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			//关闭资源
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		//返回结果
+		
+		return index;
+	}
+
 
 	
 
